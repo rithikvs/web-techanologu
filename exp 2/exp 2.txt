@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSR MOTORS pvt ltd</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("https://img.freepik.com/premium-photo/rear-modern-sports-motorcycle-is-black-there-is-smoke-background-3d-illustration_717906-117620.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .table th, .table td {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-success text-white text-center py-3 fw-bold fs-4">
+        VSR MOTORS pvt ltd
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bikes">Bikes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-6">
+                <section class="p-4 bg-light rounded">
+                    <h5>EXPLORE OUR BIKES</h5>
+                    <img src="C:\Users\jeyar\Pictures\image\pexels-harveyvillarino-28454430.jpg" class="img-fluid rounded" alt="Bike Image">
+                </section>
+                <article class="p-4 mt-3 bg-light rounded">
+                    <h3>Why Choose Our Bikes?</h3>
+                    <p>Our collection includes some of the best bikes in the market, offering top-notch performance, stunning design, and advanced features.</p>
+                </article>
+            </div>
+            <div class="col-md-6">
+                <aside class="p-4 bg-secondary text-white rounded">
+                    <h4>Top Bike Models</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Model</th>
+                                    <th>Brand</th>
+                                    <th>Year</th>
+                                    <th>CC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>R15 V4</td><td>Yamaha</td><td>2023</td><td>155cc</td></tr>
+                                <tr><td>Apache RR310</td><td>TVS</td><td>2022</td><td>312cc</td></tr>
+                                <tr><td>Dominar 400</td><td>Bajaj</td><td>2021</td><td>373cc</td></tr>
+                                <tr><td>Duke 390</td><td>KTM</td><td>2023</td><td>373cc</td></tr>
+                                <tr><td>Classic 350</td><td>Royal Enfield</td><td>2022</td><td>349cc</td></tr>
+                                <tr><td>CBR650R</td><td>Honda</td><td>2023</td><td>649cc</td></tr>
+                                <tr><td>Ninja 300</td><td>Kawasaki</td><td>2022</td><td>296cc</td></tr>
+                                <tr><td>Gixxer SF250</td><td>Suzuki</td><td>2023</td><td>249cc</td></tr>
+                                <tr><td>Xpulse 200</td><td>Hero</td><td>2023</td><td>199cc</td></tr>
+                                <tr><td>Perak</td><td>Jawa</td><td>2022</td><td>334cc</td></tr>
+                                <tr><td>G 310 R</td><td>BMW</td><td>2023</td><td>313cc</td></tr>
+                                <tr><td>Hornet 2.0</td><td>Honda</td><td>2023</td><td>184cc</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2025 VSR MOTORS. All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:info@vsrmotors.com" class="text-white">info@vsrmotors.com</a> | Phone: +91 77085 52461</p>
+        <p>Follow us on:
+            <a href="#" class="text-white">Facebook</a> |
+            <a href="#" class="text-white">Instagram</a> |
+            <a href="#" class="text-white">Twitter</a>
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

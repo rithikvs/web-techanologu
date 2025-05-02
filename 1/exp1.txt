@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            display: table;
+            width: 100vw;
+            height: 80px;
+            background-color: rgb(76, 178, 237);
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        .header-row {
+            display: table-row;
+        }
+
+        .header-cell {
+            display: table-cell;
+            width: 8.33%;
+            color: white;
+            padding: 10px;
+            border-left: 1px solid black;
+        }
+
+        .header-cell:first-child {
+            border-left: none;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background-color: rgb(238, 7, 207);
+            margin-top: 20px;
+            height: 10vh;
+            text-align: center;
+        }
+
+        .nav-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid white;
+            height: 100%;
+        }
+
+        .nav-box:last-child {
+            border-right: none;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            gap: 20px;
+            width: 100vw;
+            margin-top: 30px;
+        }
+
+        .left-column {
+            display: grid;
+            gap: 20px;
+        }
+
+        section, article {
+            width: 95%;
+            height: 30vh;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            background-color: rgb(12, 233, 45);
+        }
+
+        article {
+            background-color: rgb(226, 239, 43);
+        }
+
+        aside {
+            background-color: rgb(114, 112, 248);
+            text-align: center;
+            width: 80%;
+            padding: 20px;
+            height: auto;
+        }
+
+        footer {
+            background-color: rgb(230, 62, 20);
+            text-align: center;
+            height: 10vh;
+            width: 99vw;
+            margin-top: 20px;
+            line-height: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <span class="header-cell">1</span>
+            <span class="header-cell">2</span>
+            <span class="header-cell">3</span>
+            <span class="header-cell">4</span>
+            <span class="header-cell">5</span>
+            <span class="header-cell">6</span>
+            <span class="header-cell">7</span>
+            <span class="header-cell">8</span>
+            <span class="header-cell">9</span>
+            <span class="header-cell">10</span>
+            <span class="header-cell">11</span>
+            <span class="header-cell">12</span>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-box"><a href="#">Nav 1</a></div>
+        <div class="nav-box"><a href="#">Nav 2</a></div>
+        <div class="nav-box"><a href="#">Nav 3</a></div>
+        <div class="nav-box"><a href="#">Nav 4</a></div>
+    </nav>
+
+    <div class="container">
+        <div class="left-column">
+            <section>
+                <p>section</p>
+            </section>
+            <article>
+                <p>article</p>
+            </article>
+        </div>
+        <aside>
+            aside 
+        </aside>
+    </div>
+
+    <footer>
+        footer
+    </footer>
+</body>
+</html>

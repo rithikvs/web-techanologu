@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #04ee46, #c9d866, #715ed2, #f20505);
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        .items-input {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+        }
+        select, input[type="number"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .qty-btn {
+            width: 25px;
+            height: 25px;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .qty-btn:hover {
+            background: #0056b3;
+        }
+        .quantity {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .unit {
+            font-weight: bold;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .remove-btn {
+            background: red;
+            padding: 5px 10px;
+        }
+        .remove-btn:hover {
+            background: darkred;
+        }
+        .payment-btn {
+            background: #ff9800;
+            display: block;
+            margin: 15px auto;
+            font-size: 18px;
+            padding: 10px 15px;
+        }
+        .payment-btn:hover {
+            background: #e68900;
+        }
+        table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Department Store Bill Calculator</h2>
+
+        <div id="itemsContainer" class="items-input"></div>
+
+        <button onclick="addItemRow()">Add More Items</button>
+        <button onclick="addItemsToBill()">Generate Bill</button>
+
+        <table id="billTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <p class="total">Total: ₹<span id="grandTotal">0</span></p>
+        
+        <button class="payment-btn" onclick="makePayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        let totalAmount = 0;
+        const items = [
+            { name: "Rice", unit: "kg" },
+            { name: "Sugar", unit: "kg" },
+            { name: "Salt", unit: "kg" },
+            { name: "Milk", unit: "L" },
+            { name: "Bread", unit: "pcs" },
+            { name: "Eggs", unit: "pcs" },
+            { name: "Flour", unit: "kg" },
+            { name: "Oil", unit: "L" },
+            { name: "Soap", unit: "pcs" },
+            { name: "Brush", unit: "pcs" }
+        ];
+
+        function addItemRow() {
+            let container = document.getElementById("itemsContainer");
+
+            let itemRow = document.createElement("div");
+            itemRow.classList.add("item-row");
+
+            let select = document.createElement("select");
+            select.classList.add("itemName");
+            select.onchange = () => updateUnit(select);
+
+            let defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.textContent = "Select Item";
+            select.appendChild(defaultOption);
+
+            items.forEach(item => {
+                let option = document.createElement("option");
+                option.value = item.name;
+                option.textContent = item.name;
+                option.setAttribute("data-unit", item.unit);
+                select.appendChild(option);
+            });
+
+            let quantityBox = document.createElement("div");
+            quantityBox.classList.add("quantity-box");
+
+            let minusBtn = document.createElement("button");
+            minusBtn.textContent = "-";
+            minusBtn.classList.add("qty-btn");
+            minusBtn.onclick = () => changeQty(quantityInput, -1);
+
+            let quantityInput = document.createElement("input");
+            quantityInput.type = "text";
+            quantityInput.classList.add("quantity");
+            quantityInput.value = "1";
+            quantityInput.readOnly = true;
+
+            let unitSpan = document.createElement("span");
+            unitSpan.classList.add("unit");
+            unitSpan.textContent = "pcs";
+
+            let plusBtn = document.createElement("button");
+            plusBtn.textContent = "+";
+            plusBtn.classList.add("qty-btn");
+            plusBtn.onclick = () => changeQty(quantityInput, 1);
+
+            quantityBox.append(minusBtn, quantityInput, unitSpan, plusBtn);
+
+            let priceInput = document.createElement("input");
+            priceInput.type = "number";
+            priceInput.classList.add("itemPrice");
+            priceInput.placeholder = "Price";
+            priceInput.min = "1";
+
+            itemRow.append(select, quantityBox, priceInput);
+            container.appendChild(itemRow);
+        }
+
+        function changeQty(input, change) {
+            let step = input.nextElementSibling.textContent === "kg" || input.nextElementSibling.textContent === "L" ? 0.5 : 1;
+            let newValue = Math.max(step, parseFloat(input.value) + change * step);
+            input.value = newValue.toFixed(1);
+        }
+
+        function updateUnit(select) {
+            let unit = select.options[select.selectedIndex].getAttribute("data-unit") || "pcs";
+            select.parentNode.querySelector(".unit").textContent = unit;
+        }
+
+        function addItemsToBill() {
+            let table = document.querySelector("#billTable tbody");
+            document.querySelectorAll(".item-row").forEach(row => {
+                let select = row.querySelector(".itemName");
+                let qty = parseFloat(row.querySelector(".quantity").value);
+                let price = parseFloat(row.querySelector(".itemPrice").value);
+                let unit = row.querySelector(".unit").textContent;
+
+                if (!select.value || qty <= 0 || price <= 0) return;
+
+                let total = qty * price;
+                totalAmount += total;
+
+                let newRow = table.insertRow();
+                newRow.innerHTML = `<td>${select.value}</td><td>${qty} ${unit}</td><td>₹${price}</td><td>₹${total.toFixed(2)}</td><td><button class="remove-btn" onclick="removeItem(this, ${total})">Remove</button></td>`;
+            });
+
+            document.getElementById("grandTotal").textContent = totalAmount.toFixed(2);
+            document.getElementById("itemsContainer").innerHTML = "";
+            for (let i = 0; i < 5; i++) addItemRow();
+        }
+
+        function makePayment() {
+            alert(`Payment Successful! Your total bill is ₹${totalAmount.toFixed(2)}`);
+        }
+
+        for (let i = 0; i < 5; i++) addItemRow();
+    </script>
+
+</body>
+</html>
