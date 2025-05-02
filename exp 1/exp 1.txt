@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSR MOTORS pvt ltd</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: Arial, sans-serif; 
+            background: url("https://img.freepik.com/premium-photo/rear-modern-sports-motorcycle-is-black-there-is-smoke-background-3d-illustration_717906-117620.jpg");
+            background-size: cover; 
+            position:fixed;
+        }
+        header { 
+            background-color: rgba(12, 246, 94, 0.9); 
+            padding: 20px; 
+            text-align: center; 
+            font-size: 24px; 
+            font-weight: bold; 
+            color: white; 
+        }
+        nav { 
+            background-color: #0033cc; 
+            display: flex; 
+            justify-content: center; 
+            padding: 10px; 
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            padding: 10px 20px; 
+            transition: 0.3s; 
+        }
+        nav a:hover { 
+            background-color: white; 
+            color: #0033cc; 
+            border-radius: 5px; 
+        }
+        .main-content { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin: 20px; 
+            gap: 20px; 
+        }
+        .left-side, .right-side { 
+            flex: 1; 
+            min-width: 300px; 
+            padding: 20px; 
+        
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        }
+        .right-side { 
+            background-size: cover;
+            background-color: rgba(186, 180, 180, 0.8);
+        }
+        section, article { 
+            background-color: rgba(204, 231, 255, 0.9); 
+            padding: 20px; 
+            margin-bottom: 10px; 
+            border-radius: 10px; 
+        }
+        img { 
+            width: 100%; 
+            max-height: 300px; 
+            object-fit: cover; 
+            border-radius: 10px; 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+        }
+        th, td { 
+            border: 1px solid black; 
+            padding: 10px; 
+            text-align: center; 
+        }
+        th { 
+            background-color: black; 
+            color: white; 
+        }
+        footer { 
+            background-color: #008000; 
+            padding: 20px; 
+            text-align: center; 
+            color: white; 
+            margin-top: 20px; 
+        }
+        @media (max-width: 768px) { 
+            .main-content { 
+                flex-direction: column; 
+            } 
+        }
+    </style>
+</head>
+<body>
+    <header>VSR MOTORS pvt ltd</header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#bikes">Bikes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="main-content">
+        <div class="left-side">
+            <section>
+                <p>EXPLORE OUR BIKES</p>
+                <img src="C:\Users\jeyar\Pictures\image\pexels-harveyvillarino-28454430.jpg"alt="Bike Image">
+            </section>
+            <article>
+                <h3>Why Choose Our Bikes?</h3>
+                <p>Our collection includes some of the best bikes in the market, offering top-notch performance, stunning design, and advanced features. Whether you are looking for a sportbike, touring bike, or streetfighter, we have something for everyone. Explore our range and find your perfect ride today!</p>
+            </article>
+        </div>
+        <aside class="right-side">
+            <h4>Top Bike Models</h4>
+            <table>
+                <thead>
+                    <tr><th>Model</th><th>Brand</th><th>Year</th><th>CC</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>R15 V4</td><td>Yamaha</td><td>2023</td><td>155cc</td></tr>
+                    <tr><td>Apache RR310</td><td>TVS</td><td>2022</td><td>312cc</td></tr>
+                    <tr><td>Dominar 400</td><td>Bajaj</td><td>2021</td><td>373cc</td></tr>
+                    <tr><td>Duke 390</td><td>KTM</td><td>2023</td><td>373cc</td></tr>
+                    <tr><td>Classic 350</td><td>Royal Enfield</td><td>2022</td><td>349cc</td></tr>
+                    <tr><td>CBR650R</td><td>Honda</td><td>2023</td><td>649cc</td></tr>
+                    <tr><td>Ninja 300</td><td>Kawasaki</td><td>2022</td><td>296cc</td></tr>
+                    <tr><td>Gixxer SF250</td><td>Suzuki</td><td>2023</td><td>249cc</td></tr>
+                    <tr><td>Xpulse 200</td><td>Hero</td><td>2023</td><td>199cc</td></tr>
+                    <tr><td>Perak</td><td>Jawa</td><td>2022</td><td>334cc</td></tr>
+                    <tr><td>G 310 R</td><td>BMW</td><td>2023</td><td>313cc</td></tr>
+                    <tr><td>Hornet 2.0</td><td>Honda</td><td>2023</td><td>184cc</td></tr>
+                </tbody>
+            </table>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2025 VSR MOTORS. All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:info@vsrmotors.com">info@vsrmotors.com</a> | Phone: +91 77085 52461</p>
+        <p>Follow us on:
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
